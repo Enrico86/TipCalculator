@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TipCalculator.MainPage">
+
+    <TableView Intent="Form" 
+               BackgroundColor="Beige"
+               HasUnevenRows="True">
+        <TableRoot Title="TipCalculator">
+            <TableSection Title="Datos de la cena"
+                          TextColor="Black">
+                <EntryCell x:Name="txtTotal" 
+                           Label="Total cuenta (€): "
+                           Placeholder="200,0€"
+                           LabelColor="Black"
+                           Height="60"
+                           Text="{Binding TotalCuenta}"></EntryCell>
+                <EntryCell x:Name="txtPorcentaje"
+                           Label="% propina: "
+                           Placeholder="10%"
+                           LabelColor="Black"
+                           Height="60"
+                           Text="{Binding PorcentajePropina}"></EntryCell>
+                <ViewCell Height="60">
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Numero personas: "></Label>
+                            <Stepper x:Name="stepperNumeroPersonas"
+                                     Minimum="1"
+                                     Maximum="20"
+                                     Increment="1"
+                                     Value="{Binding NumeroPersonas}"></Stepper>
+                            <Label x:Name="lblNumeroPersonasDisplay"
+                                   BindingContext="{x:Reference stepperNumeroPersonas}"
+                                   Text="{Binding Path=Value}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontSize="20"></Label>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="División de la propina"
+                          TextColor="Black">
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout>
+                            <Button x:Name="calcularButton"
+                                    Text="Calcular Propina"
+                                    Command="{Binding CalculosCommand}"></Button>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="totalPropina" 
+                                       Text="Total propina: "
+                                       WidthRequest="250"></Label>
+                                <Label x:Name="totalPropinaDisplay" 
+                                       Text="{Binding TotalPropina}"
+                                       HorizontalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="propinaPorPersona" 
+                                       Text="Propina por persona: "
+                                       WidthRequest="250"></Label>
+                                <Label x:Name="propinaPersonaDisplay" 
+                                       Text="{Binding PropinaPersona}"
+                                       HorizontalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="totalPersona"
+                                       Text="Total por persona:"
+                                       WidthRequest="250"></Label>
+                                <Label x:Name="totalPersonaDisplay"
+                                       Text="{Binding TotalPorPersona}"
+                                       HorizontalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="totalCuentaYPropina"
+                                       Text="Total cuenta (incluyendo propina):"
+                                       WidthRequest="250"></Label>
+                                <Label x:Name="totalCuentaYPropinaDisplay"
+                                       Text="{Binding TotalCuentaYPropina}"
+                                       HorizontalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+
+</ContentPage>

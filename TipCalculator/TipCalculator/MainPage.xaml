@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:TipCalculator.Converters"
              mc:Ignorable="d"
              x:Class="TipCalculator.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FloatToMoney x:Key="toMoney"></converters:FloatToMoney>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <TableView Intent="Form" 
                BackgroundColor="Beige"
                HasUnevenRows="True">
@@ -55,7 +62,7 @@
                                        Text="Total propina: "
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalPropinaDisplay" 
-                                       Text="{Binding TotalPropina}"
+                                       Text="{Binding TotalPropina, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -63,7 +70,7 @@
                                        Text="Propina por persona: "
                                        WidthRequest="250"></Label>
                                 <Label x:Name="propinaPersonaDisplay" 
-                                       Text="{Binding PropinaPersona}"
+                                       Text="{Binding PropinaPersona, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -71,7 +78,7 @@
                                        Text="Total por persona:"
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalPersonaDisplay"
-                                       Text="{Binding TotalPorPersona}"
+                                       Text="{Binding TotalPorPersona, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -79,7 +86,7 @@
                                        Text="Total cuenta (incluyendo propina):"
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalCuentaYPropinaDisplay"
-                                       Text="{Binding TotalCuentaYPropina}"
+                                       Text="{Binding TotalCuentaYPropina, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                         </StackLayout>

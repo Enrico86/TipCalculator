@@ -30,7 +30,7 @@ namespace TipCalculator
             get
             {
                 if (_totalCuenta < 0)
-                { _totalCuenta = 0; }
+                { _totalCuenta = Math.Abs(_totalCuenta); }
                 return _totalCuenta;
             }
             set { _totalCuenta = value; }
@@ -41,7 +41,7 @@ namespace TipCalculator
             get
             {
                 if (_porcentajePropina < 0)
-                { _porcentajePropina = 0; }
+                { _porcentajePropina = Math.Abs(_porcentajePropina); }
                 return _porcentajePropina;
             }
             set { _porcentajePropina = value; }

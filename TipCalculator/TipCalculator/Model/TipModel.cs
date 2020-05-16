@@ -9,19 +9,9 @@ namespace TipCalculator
 {
     public class TipModel : INotifyPropertyChanged
     {
-        public Command CalculosCommand { get; set; }
-
         public TipModel()
         {
-            CalculosCommand = new Command(HacerCalculos);
-        }
 
-        private void HacerCalculos()
-        {
-            TotalPropina = TotalCuenta * PorcentajePropina / 100;
-            PropinaPersona = TotalPropina / NumeroPersonas;
-            TotalPorPersona = PropinaPersona + (TotalCuenta / NumeroPersonas);
-            TotalCuentaYPropina = TotalCuenta + TotalPropina;
         }
 
         private float _totalCuenta;
@@ -92,8 +82,6 @@ namespace TipCalculator
                 OnPropertyChanged();
             }
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -24,13 +24,13 @@
                            Placeholder="200,0€"
                            LabelColor="Black"
                            Height="60"
-                           Text="{Binding TotalCuenta}"></EntryCell>
+                           Text="{Binding tipModel.TotalCuenta}"></EntryCell>
                 <EntryCell x:Name="txtPorcentaje"
                            Label="% propina: "
                            Placeholder="10%"
                            LabelColor="Black"
                            Height="60"
-                           Text="{Binding PorcentajePropina}"></EntryCell>
+                           Text="{Binding tipModel.PorcentajePropina}"></EntryCell>
                 <ViewCell Height="60">
                     <ViewCell.View>
                         <StackLayout Orientation="Horizontal">
@@ -39,7 +39,7 @@
                                      Minimum="1"
                                      Maximum="20"
                                      Increment="1"
-                                     Value="{Binding NumeroPersonas}"></Stepper>
+                                     Value="{Binding tipModel.NumeroPersonas}"></Stepper>
                             <Label x:Name="lblNumeroPersonasDisplay"
                                    BindingContext="{x:Reference stepperNumeroPersonas}"
                                    Text="{Binding Path=Value}"
@@ -62,7 +62,7 @@
                                        Text="Total propina: "
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalPropinaDisplay" 
-                                       Text="{Binding TotalPropina, Converter={StaticResource toMoney}}"
+                                       Text="{Binding tipModel.TotalPropina, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -70,7 +70,7 @@
                                        Text="Propina por persona: "
                                        WidthRequest="250"></Label>
                                 <Label x:Name="propinaPersonaDisplay" 
-                                       Text="{Binding PropinaPersona, Converter={StaticResource toMoney}}"
+                                       Text="{Binding tipModel.PropinaPersona, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -78,7 +78,7 @@
                                        Text="Total por persona:"
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalPersonaDisplay"
-                                       Text="{Binding TotalPorPersona, Converter={StaticResource toMoney}}"
+                                       Text="{Binding tipModel.TotalPorPersona, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
@@ -86,7 +86,7 @@
                                        Text="Total cuenta (incluyendo propina):"
                                        WidthRequest="250"></Label>
                                 <Label x:Name="totalCuentaYPropinaDisplay"
-                                       Text="{Binding TotalCuentaYPropina, Converter={StaticResource toMoney}}"
+                                       Text="{Binding tipModel.TotalCuentaYPropina, Converter={StaticResource toMoney}}"
                                        HorizontalOptions="CenterAndExpand"></Label>
                             </StackLayout>
                         </StackLayout>
